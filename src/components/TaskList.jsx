@@ -3,23 +3,18 @@ import { TaskContext } from "../context/TaskContext";
 
 const TaskList = () => {
   const { tasks, dispatch } = useContext(TaskContext);
-
-  // Estados para filtrado y ordenación
-  const [filter, setFilter] = useState("all"); // Filtrar: todas, completadas o incompletas
-  const [sortOrder, setSortOrder] = useState("asc"); // Ordenar: ascendente o descendente
+  const [filter, setFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState("asc");
 
   const toggleCompleted = (id) => {
     dispatch({ type: "TOGGLE_TASK", payload: id });
   };
-
-  // Filtrado de tareas
   const filteredTasks = tasks.filter((task) => {
     if (filter === "completed") return task.completed;
     if (filter === "incomplete") return !task.completed;
-    return true; // "all" no aplica filtro
+    return true; 
   });
 
-  // Ordenación de tareas
   const sortedTasks = filteredTasks.sort((a, b) => {
     if (sortOrder === "asc") {
       return new Date(a.dueDate) - new Date(b.dueDate);
@@ -31,8 +26,6 @@ const TaskList = () => {
   return (
     <div className="list-section mt-5">
       <h2 className="mb-4">Lista de Tareas</h2>
-      
-      {/* Filtros */}
       <div className="mb-3">
         <select
           className="form-select"
@@ -44,9 +37,7 @@ const TaskList = () => {
           <option value="incomplete">Incompletas</option>
         </select>
       </div>
-
-      {/* Ordenación */}
-      <div className="mb-3">
+       <div className="mb-3">
         <button
           className="btn btn-primary"
           onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
@@ -54,8 +45,6 @@ const TaskList = () => {
           Ordenar por Fecha ({sortOrder === "asc" ? "Ascendente" : "Descendente"})
         </button>
       </div>
-
-      {/* Mostrar tareas */}
       {sortedTasks.length === 0 ? (
         <p>No hay tareas.</p>
       ) : (

@@ -10,7 +10,7 @@ const AppNavbar = ({ modoOscuro, setModoOscuro, toggleSidebar }) => {
     <nav className="custom-navbar d-flex justify-content-between align-items-center">
       <span
         className="navbar-brand"
-        onClick={() => navigate('/')} // Redirige a la ruta de inicio
+        onClick={() => navigate('/')}
         style={{ cursor: 'pointer' }}
       >
         📋 Gestor de Tareas

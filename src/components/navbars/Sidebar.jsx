@@ -7,15 +7,12 @@ const Sidebar = ({ abierto, modoOscuro, toggleSidebar }) => {
 
   const irARuta = (ruta) => {
     navigate(ruta);
-    toggleSidebar(); // Cierra el sidebar al hacer clic en una opción
+    toggleSidebar();
   };
 
   return (
     <div className={`sidebar ${abierto ? 'open' : ''} ${modoOscuro ? 'oscuro' : 'claro'}`}>
-      {/* Botón para cerrar el sidebar */}
       <button className="btn-close btn-close-white" onClick={toggleSidebar}></button>
-      
-      {/* Opciones del sidebar */}
       <button className="btn btn-link" onClick={() => irARuta('/create')}>Add Task</button>
       <button className="btn btn-link" onClick={() => irARuta('/edit')}>Edit Task</button>
       <button className="btn btn-link" onClick={() => irARuta('/list')}>View Tasks</button>

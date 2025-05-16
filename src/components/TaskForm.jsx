@@ -28,7 +28,7 @@ const TaskForm = ({ isDarkMode }) => {
     setPriority("Media");
     setSuccess(true);
 
-    setTimeout(() => setSuccess(false), 3000); // Oculta mensaje luego de 3s
+    setTimeout(() => setSuccess(false), 3000);
   };
 
   return (

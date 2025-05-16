@@ -61,14 +61,14 @@ describe('App structure and routing', () => {
 
 describe('CalendarView', () => {
   test('muestra las tareas del día seleccionado', () => {
-    // Fecha fija sin hora (UTC)
-    const fixedDate = new Date('2025-05-16T00:00:00Z'); // mismo día que hoy (ajusta si cambia)
+   
+    const fixedDate = new Date('2025-05-16T00:00:00Z'); 
     
     const mockTasks = [
       {
         id: '1',
         title: 'Tarea 1',
-        dueDate: fixedDate.toISOString(), // tarea para la fecha fija
+        dueDate: fixedDate.toISOString(), 
       },
       {
         id: '2',
@@ -77,14 +77,12 @@ describe('CalendarView', () => {
       },
     ];
 
-    // Mock del contexto
     const MockProvider = ({ children }) => (
       <TaskContext.Provider value={{ tasks: mockTasks }}>
         {children}
       </TaskContext.Provider>
     );
 
-    // Mockeamos Date para que CalendarView use la misma fecha
     jest.useFakeTimers().setSystemTime(fixedDate);
 
     render(
@@ -96,6 +94,6 @@ describe('CalendarView', () => {
     expect(screen.getByText(/Calendario/)).toBeInTheDocument();
     expect(screen.getByText((content) => content.includes('Tarea 1'))).toBeInTheDocument();
 
-    jest.useRealTimers(); // restauramos
+    jest.useRealTimers(); 
   });
 });

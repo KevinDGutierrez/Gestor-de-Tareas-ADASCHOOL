@@ -22,7 +22,7 @@ const FormUpdate = ({ isDarkMode }) => {
         setDueDate(task.dueDate);
         setPriority(task.priority);
       } else {
-        navigate('/edit'); // redirige a lista si no se encuentra
+        navigate('/edit');
       }
     }
   }, [id, tasks, navigate]);

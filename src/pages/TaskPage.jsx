@@ -9,9 +9,7 @@ const TaskPage = () => {
     <TaskProvider>
       <div className="task-page">
         <TaskProgress />
-
-        {/* Contenedor que alinea TaskList y CalendarView */}
-        <div className="main-layout">
+      <div className="main-layout">
           <TaskList />
           <CalendarView />
         </div>

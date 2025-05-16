@@ -3,7 +3,7 @@ import { createContext, useReducer, useContext, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { initialTasks } from '../data/tasks';
 
-// Obtener tareas desde localStorage o usar las iniciales
+
 const getInitialTasks = () => {
   try {
     const storedTasks = localStorage.getItem("tasks");
@@ -14,7 +14,7 @@ const getInitialTasks = () => {
   }
 };
 
-// Reducer para manejar acciones sobre tareas
+
 const taskReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TASK':
@@ -23,7 +23,7 @@ const taskReducer = (state, action) => {
         {
           id: uuidv4(),
           createdAt: new Date().toISOString(),
-          completed: false, // Por defecto una tarea no está completada
+          completed: false,
           ...action.payload,
         },
       ];
@@ -48,14 +48,11 @@ const taskReducer = (state, action) => {
   }
 };
 
-// Crear contexto
 export const TaskContext = createContext();
 
-// Proveedor de contexto
 export const TaskProvider = ({ children }) => {
   const [tasks, dispatch] = useReducer(taskReducer, getInitialTasks());
 
-  // Guardar tareas en localStorage cuando cambian
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -67,5 +64,4 @@ export const TaskProvider = ({ children }) => {
   );
 };
 
-// Hook para usar el contexto fácilmente
 export const useTasks = () => useContext(TaskContext);

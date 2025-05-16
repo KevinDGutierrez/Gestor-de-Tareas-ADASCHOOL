@@ -1,4 +1,3 @@
-// src/components/TaskProgress.jsx
 import React, { useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
 
