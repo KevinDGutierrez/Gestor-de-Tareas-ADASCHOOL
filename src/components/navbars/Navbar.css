@@ -1,0 +1,15 @@
+.custom-navbar {
+  background-color: rgba(139, 201, 231, 0.9);
+  backdrop-filter: blur(6px);
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black !important;
+}

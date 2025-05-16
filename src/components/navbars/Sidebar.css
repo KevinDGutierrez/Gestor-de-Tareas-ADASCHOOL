@@ -1,0 +1,70 @@
+/* src/components/navbars/Sidebar.css */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  transform: translateX(100%); /* Oculto por defecto */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar visible */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Botón para cerrar */
+.sidebar .btn-close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Botones de navegación */
+.sidebar .btn-link {
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: left;
+  transition: color 0.3s;
+}
+
+/* Hover */
+.sidebar .btn-link:hover {
+  color: #00bcd4;
+}
+
+/* Estilos por modo */
+.sidebar.claro {
+  background-color: rgba(139, 201, 231, 0.95);
+  color: black;
+}
+
+.sidebar.oscuro {
+  background-color: rgba(200, 83, 99, 0.95);
+  color: white;
+}
+
+.sidebar.claro .btn-link {
+  color: black;
+}
+
+.sidebar.claro .btn-link:hover {
+  color: #008b8b;
+}
